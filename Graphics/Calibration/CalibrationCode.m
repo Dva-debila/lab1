@@ -34,4 +34,8 @@ ylabel('торр');
 title('Калибровка измерительной системы');
 text(mean(Adc)*0.98,mean(Torr)*0.95,['P(adc) = ', num2str(c(1)),' * adc + ',num2str(c(2)),' [торр]']);
 
+settings = fopen('settings.txt','w');
+fprintf(settings,'%f\n',c(1), c(2));
+fclose(settings);
+
 saveas(cFigure, 'CalibrationGraph.png');
